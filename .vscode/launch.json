@@ -1,0 +1,155 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "🐍 Debug Flask Backend",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/ecotide-backend/app.py",
+      "python": "${workspaceFolder}/ecotide-backend/venv/bin/python",
+      "cwd": "${workspaceFolder}/ecotide-backend",
+      "env": {
+        "FLASK_ENV": "development",
+        "FLASK_DEBUG": "1",
+        "PYTHONPATH": "${workspaceFolder}/ecotide-backend"
+      },
+      "args": [],
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "gevent": false
+    },
+    {
+      "name": "🧠 Debug ML Training",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/ecotide-ml/train_model.py",
+      "python": "${workspaceFolder}/ecotide-backend/venv/bin/python",
+      "cwd": "${workspaceFolder}/ecotide-ml",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/ecotide-ml:${workspaceFolder}/ecotide-backend"
+      },
+      "args": [
+        "--verbose",
+        "--data",
+        "raw_products.csv"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "🧠 Debug ML Training (with tuning)",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/ecotide-ml/train_model.py",
+      "python": "${workspaceFolder}/ecotide-backend/venv/bin/python",
+      "cwd": "${workspaceFolder}/ecotide-ml",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/ecotide-ml:${workspaceFolder}/ecotide-backend"
+      },
+      "args": [
+        "--verbose",
+        "--tune",
+        "--data",
+        "raw_products.csv"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "📊 Debug Data Processor",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/ecotide-ml/data_processor.py",
+      "python": "${workspaceFolder}/ecotide-backend/venv/bin/python",
+      "cwd": "${workspaceFolder}/ecotide-ml",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/ecotide-ml:${workspaceFolder}/ecotide-backend"
+      },
+      "args": [],
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "⚛️ Debug React Extension (Dev Server)",
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Vite Dev Server",
+      "program": "${workspaceFolder}/ecotide-extension/node_modules/vite/bin/vite.js",
+      "cwd": "${workspaceFolder}/ecotide-extension",
+      "args": [
+        "--host",
+        "0.0.0.0",
+        "--port",
+        "5000"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "console": "integratedTerminal",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
+    },
+    {
+      "name": "🔧 Test API Endpoints",
+      "type": "python",
+      "request": "launch",
+      "module": "pytest",
+      "python": "${workspaceFolder}/ecotide-backend/venv/bin/python",
+      "cwd": "${workspaceFolder}/ecotide-backend",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/ecotide-backend"
+      },
+      "args": [
+        "-v",
+        "--tb=short"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "🌐 Debug with Chrome Extension",
+      "type": "chrome",
+      "request": "launch",
+      "url": "https://www.amazon.com/dp/B08N5WRWNW",
+      "webRoot": "${workspaceFolder}/ecotide-extension/src",
+      "userDataDir": "${workspaceFolder}/.vscode/chrome-debug-profile",
+      "runtimeArgs": [
+        "--load-extension=${workspaceFolder}/ecotide-extension/dist",
+        "--disable-extensions-except=${workspaceFolder}/ecotide-extension/dist",
+        "--disable-web-security",
+        "--user-data-dir=${workspaceFolder}/.vscode/chrome-debug-profile"
+      ],
+      "sourceMaps": true,
+      "trace": true
+    }
+  ],
+  "compounds": [
+    {
+      "name": "🚀 Launch Full Development Environment",
+      "configurations": [
+        "🐍 Debug Flask Backend",
+        "⚛️ Debug React Extension (Dev Server)"
+      ],
+      "stopAll": true,
+      "presentation": {
+        "hidden": false,
+        "group": "development",
+        "order": 1
+      }
+    },
+    {
+      "name": "🧪 Debug ML Pipeline",
+      "configurations": [
+        "🧠 Debug ML Training",
+        "📊 Debug Data Processor"
+      ],
+      "stopAll": true,
+      "presentation": {
+        "hidden": false,
+        "group": "ml",
+        "order": 2
+      }
+    }
+  ]
+}
