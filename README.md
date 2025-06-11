@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # EcoTide
 ## Amazon HackOn
 ### Folder structure
@@ -64,4 +65,36 @@ ecotide/
 │   └── launch.json
 
 └── README.md                     # Main project overview + instructions
+=======
+# EcoTide - Sustainable Shopping Assistant 🌱
+
+EcoTide is a comprehensive Chrome extension that promotes sustainable shopping by providing real-time sustainability grades (A-E) for e-commerce products. Built with React, Flask, and machine learning, it helps users make environmentally conscious purchasing decisions.
+
+![EcoTide Logo](https://img.shields.io/badge/EcoTide-Sustainable%20Shopping-22c55e?style=for-the-badge&logo=leaf)
+
+## 🌟 Features
+
+### 🎯 Core Functionality
+- **Real-time Sustainability Scoring**: Get instant A-E grades for products on Amazon, eBay, and other e-commerce sites
+- **Smart Overlay Injection**: Non-intrusive overlays that appear directly on product pages
+- **Comprehensive Metrics**: CO₂ impact, recyclability, renewable materials, and packaging assessments
+- **Personal Dashboard**: Track your eco-friendly choices, badges, and environmental impact
+- **ML-Powered Analysis**: Advanced machine learning model trained on sustainability indicators
+
+### 🚀 Technology Stack
+- **Frontend**: React 18 + Tailwind CSS + Vite
+- **Backend**: Flask + scikit-learn + pandas
+- **ML Pipeline**: RandomForest classifier with TF-IDF features
+- **Extension**: Chrome Extension Manifest v3
+- **Development**: VS Code configuration included
+
+### 📊 Sustainability Metrics
+- **Grade A**: Excellent sustainability (organic, renewable, zero waste)
+- **Grade B**: Good sustainability (recyclable, durable, energy efficient)
+- **Grade C**: Average sustainability (standard products)
+- **Grade D**: Below average (disposable, synthetic materials)
+- **Grade E**: Poor sustainability (toxic, wasteful, harmful)
+
+## 🏗️ Project Structure
+>>>>>>> 3ff1239 (Update README and add setup script)
 
